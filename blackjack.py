@@ -2,11 +2,13 @@ import random
 import time
 
 #print (random.randint(1,12))
+username = ("None")
 value = ("None")
 rolls = 1
 user_numbers = [0]
 house_numbers = [0]
 
+username = input("Please input your username: ")
 
 while rolls < 6:
     # Player Starts the game
@@ -50,6 +52,9 @@ while rolls < 6:
         if house_check_total > 21:
             print ("The house have exceeded 21. You win!")
             print ("House final total is "+ house_check_total_str)
+            f = open("highscore.txt", "a")
+            f.write(username+ " : "+ total+"\n")
+            f.close()
             break
 
         else:
@@ -77,4 +82,7 @@ while rolls < 6:
     if house_check_total > 21:
         print ("The house have exceeded 21. You win!")
         print ("House final total is "+ house_check_total_str)
+        f = open("highscore.txt", "a")
+        f.write(username+ " : "+ total+"\n")
+        f.close()
         break
